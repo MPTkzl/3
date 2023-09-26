@@ -1,0 +1,57 @@
+﻿<Window x:Class="player.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:player"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.3*"/>
+        </Grid.RowDefinitions>
+        <MediaElement Name="Player" LoadedBehavior="Manual" UnloadedBehavior="Stop" MediaOpened="MediaOpened" MediaEnded="MediaEnded"/>
+        <Button x:Name="Open_folder" Content="Open Folder" Margin="5" HorizontalAlignment="Left" Width="150" Click="Open_folder_Click"/>
+        <ScrollViewer Grid.Row="1">
+            <TextBlock x:Name="TxtList"/>
+        </ScrollViewer>
+        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="BLeft" Grid.Column="0" Width="62" Height="62" IsEnabled="False" Click="BLeft_Click">
+                <Image Source="C:\Users\Admin\OneDrive\Изображения\влево.png"></Image>
+            </Button>
+            <Button x:Name="BPlay" Grid.Column="1" Width="62" Height="62" IsEnabled="False" Click="BPlay_Click">
+                <Image Source="C:\Users\Admin\OneDrive\Изображения\играть.png"></Image>
+            </Button>
+            <Button x:Name="BRight" Grid.Column="2" Width="62" Height="62" IsEnabled="False" Click="BRight_Click">
+                <Image Source="C:\Users\Admin\OneDrive\Изображения\вправо.png"></Image>
+            </Button>
+            <Button x:Name="BRand" Grid.Column="3" Width="62" Height="62" IsEnabled="False" Click="BRand_Click">
+                <Image Source="C:\Users\Admin\OneDrive\Изображения\случайно.png"></Image>
+            </Button>
+            <Button x:Name="BCycle" Grid.Column="4" Width="62" Height="62" IsEnabled="False" Click="BCycle_Click">
+                <Image Source="C:\Users\Admin\OneDrive\Изображения\повтор.png" Height="60"></Image>
+            </Button>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.1*"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="TimeCurrent" Content="00:00" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Slider x:Name="Slider" Grid.Column="1" VerticalAlignment="Center" IsEnabled="False" ValueChanged="Slider_ValueChanged"/>
+            <Label x:Name="TimeRemaining" Grid.Column="2" Content="00:00" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+    </Grid>
+</Window>
